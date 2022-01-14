@@ -1,0 +1,27 @@
+#include <bits/stdc++.h>
+using namespace std;
+using namespace std::chrono;
+
+int myAmount = 0;
+std::mutex m;
+
+void addMoney(){
+    for(int i=0; i<100000; i++){
+        if(m.try_lock()){
+            ++myAmount;
+            m.unlock();
+        }
+    }
+}
+
+int main(){
+    std::thread t1(addMoney);
+    std::thread t2(addMoney);
+
+    t1.join();
+    t2.join();
+
+    cout << "Final amount is: " << myAmount << endl;
+
+    return 0;
+}
