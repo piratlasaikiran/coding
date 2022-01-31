@@ -46,7 +46,7 @@ class Solution{
                     count = count +  lf*rf + lf*rt + lt*rf;
             }
         }
-        return count;
+        return dp[i][j][isTrue] = count;
     }
 };
 
