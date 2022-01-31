@@ -19,7 +19,7 @@ public:
 int main(){
     Solution obj;
     vector<int> coins = {1,2,5};
-    auto answer = obj.change(5, coins);
+    auto answer = obj.combinationSum4(coins, 5);
     cout << "Answer is: " << answer << endl;
     return 0;
 }

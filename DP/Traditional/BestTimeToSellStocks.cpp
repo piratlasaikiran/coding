@@ -56,7 +56,7 @@ public:
         DayState[0][0] = -1*prices[0];
         for(int i=1; i<n; i++){
             DayState[i][0] = max(DayState[i-1][0], DayState[i-1][1]-prices[i]);
-            DayState[i][1] = max(DayState[i-1][1], DayState[i-1][0]+prices[i]-2);
+            DayState[i][1] = max(DayState[i-1][1], DayState[i-1][0]+prices[i]-fee);
         }
         return DayState[n-1][1];
     }
